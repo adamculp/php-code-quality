@@ -24,6 +24,8 @@ RUN mkdir -p $TARGET_DIR
 
 WORKDIR $TARGET_DIR
 
+COPY install-composer.sh $TARGET_DIR/
+
 # RUN mkdir /opt/php-qa-tools && cd /opt/php-qa-tools \
 #    && wget https://phar.phpunit.de/phpunit.phar -O phpunit \
 #    && wget https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar -O phpcs \
@@ -52,7 +54,7 @@ RUN $TARGET_DIR/install-composer.sh && \
 
         "techlivezheng/phpctags:dev-master" \
         "wimg/php-compatibility:dev-master" \
-        "etsy/phan:dev-master" && \
+        "etsy/phan:dev-master" \
 
 # install PHPCompatibility
 
