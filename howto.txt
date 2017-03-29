@@ -1,0 +1,30 @@
+This container does nothing when invoking it without a command.
+
+Usage example:
+$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest <your-command-with-arguments>
+
+In the example above, the mounted host directory is your current working directory.
+This is the most common case, because it enables you to run the php tools on everything in
+and below that directory.
+
+There are two ways it can be used:
+
+* Run a command in the container on your mounted directory or below.
+* Run a script from your mounted directory or below.
+
+Available commands in the container:
+
+* php
+* composer
+
+* phpunit
+
+* phpcs
+* phpmd
+* phpcpd
+* phan
+
+* phpcbf
+* php-cs-fixer
+
+* sh (or any other command)
