@@ -1,18 +1,10 @@
-# this is a WORK IN PROGRESS
-
-# DO NOT USE YET
-
-
-#
 # Choose the desired PHP version
 # Choices available at https://hub.docker.com/_/php/ stick to "-cli" versions recommended
-#
 FROM php:7.1-cli
-
 
 MAINTAINER Adam Culp <adamculp@uws.net>
 
-ENV TARGET_DIR="/usr/local/lib/php-qa-tools" \
+ENV TARGET_DIR="/usr/local/lib/php-code-quality" \
     COMPOSER_ALLOW_SUPERUSER=1 \
     TIMEZONE=America/New_York \
     PHP_MEMORY_LIMIT=512M
@@ -47,5 +39,3 @@ RUN $TARGET_DIR/composer-installer.sh && \
        "friendsofphp/php-cs-fixer:dev-master" \
        "techlivezheng/phpctags:dev-master" \
        "wimg/php-compatibility:dev-master"
-
-CMD cat $TARGET_DIR/howto.txt
