@@ -38,4 +38,5 @@ RUN $TARGET_DIR/composer-installer.sh && \
        "sebastian/phpcpd:dev-master" \
        "friendsofphp/php-cs-fixer:dev-master" \
        "techlivezheng/phpctags:dev-master" \
-       "wimg/php-compatibility:dev-master"
+       "wimg/php-compatibility:dev-master" \
+       "phpmetrics/phpmetrics:dev-master"
