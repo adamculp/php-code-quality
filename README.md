@@ -1,5 +1,5 @@
 # php-code-quality
-The objective is to include multiple PHP code quality tools in one instance. Currently this means:
+The objective is to include multiple PHP code quality tools (phpqatools and more) in one instance. Currently this means:
 
 - squizlabs/php_codesniffer
 - phpunit/phpunit
