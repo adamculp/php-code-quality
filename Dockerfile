@@ -21,8 +21,8 @@ RUN apt-get update && \
     apt-get install -y wget && \
     apt-get install -y zip && \
     apt-get install -y git && \
-    apt-get install -y php-xml && \
-    apt-get install -y php-ast
+    apt-get install -y libxml2-dev && \
+    docker-php-ext-install xml
 
 RUN chmod 744 $TARGET_DIR/composer-installer.sh
 RUN chmod 744 /usr/local/bin/composer
@@ -39,6 +39,5 @@ RUN $TARGET_DIR/composer-installer.sh && \
        "phpmd/phpmd:dev-master" \
        "sebastian/phpcpd:dev-master" \
        "friendsofphp/php-cs-fixer:dev-master" \
-       "techlivezheng/phpctags:dev-master" \
        "wimg/php-compatibility:dev-master" \
        "phpmetrics/phpmetrics:dev-master"
