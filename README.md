@@ -44,7 +44,7 @@ Available commands in the container:
 * php-cs-fixer
 * sh (or any other command)
 
-Some possible example commands:
+### Some possible example commands:
 
 #### PHP Lines of Code (PHPLoc)
 
