@@ -1,6 +1,6 @@
 # Choose the desired PHP version
 # Choices available at https://hub.docker.com/_/php/ stick to "-cli" versions recommended
-FROM php:7.0-cli
+FROM php:7.1-cli
 
 MAINTAINER Adam Culp <adamculp@uws.net>
 
