@@ -39,12 +39,14 @@ Available commands in the container:
 * vendor/bin/pdepend + args
 * vendor/bin/phpcpd + args
 * vendor/bin/phpmetrics + args
-* phpunit
-* vendor/bin/phpcs
-* php-cs-fixer
+* vendor/bin/phpunit + args
+* vendor/bin/phpcs + args
+* vendor/bin/php-cs-fixer + args
 * sh (or any other command)
 
 ### Some possible example commands:
+
+NOTE: If you use the commands below as-is you will want to create the 'php_code_quality' folder within your project first.
 
 #### PHP Lines of Code (PHPLoc)
 
@@ -85,7 +87,7 @@ $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest ph
 
 See https://github.com/wimg/PHPCompatibility and https://github.com/squizlabs/PHP_CodeSniffer/wiki for more usage details of this tool
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths /usr/local/lib/php-code-quality/vendor/wimg/php-compatibility/ --standard='PHPCompatibility' --extensions=php --ignore=vendor --report-file=./php_code_quality/codesniffer_results.txt .
+$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest php vendor/bin/phpcs -sv --extensions=vendor/wimg/php-compatibility --standard='PHPCompatibility' --extensions=php --ignore=vendor --report-file=./php_code_quality/codesniffer_results.txt .
 ```
 ## Alternative Preparations
 
