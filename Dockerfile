@@ -13,7 +13,6 @@ RUN mkdir -p $TARGET_DIR
 
 WORKDIR $TARGET_DIR
 
-COPY howto.txt $TARGET_DIR/
 COPY composer-installer.sh $TARGET_DIR/
 COPY composer-wrapper.sh /usr/local/bin/composer
 
