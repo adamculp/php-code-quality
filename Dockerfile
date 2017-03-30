@@ -18,7 +18,11 @@ COPY composer-installer.sh $TARGET_DIR/
 COPY composer-wrapper.sh /usr/local/bin/composer
 
 RUN apt-get update && \
-    apt-get install -y wget zip git php-xml php-ast
+    apt-get install -y wget && \
+    apt-get install -y zip && \
+    apt-get install -y git && \
+    apt-get install -y php-xml && \
+    apt-get install -y php-ast
 
 RUN chmod 744 $TARGET_DIR/composer-installer.sh
 RUN chmod 744 /usr/local/bin/composer
