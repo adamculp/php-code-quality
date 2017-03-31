@@ -18,6 +18,8 @@ Note: This container does nothing when invoking it without a command.
 
 Example command:
 
+Windows users: The use of "$PWD" will not work, instead use the full path. Such as "//c/Users/adamculp/project".
+
 ```
 $ cd </path/to/desired/directory>
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest <desired-command-with-arguments>
