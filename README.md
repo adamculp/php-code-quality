@@ -14,6 +14,7 @@ More specifically this includes:
 - friendsofphp/php-cs-fixer
 - wimg/php-compatibility
 - phpmetrics/phpmetrics
+- phpstan/phpstan
 
 ## Usage
 
@@ -47,6 +48,7 @@ Available commands provided by the adamculp/php-code-quality image:
 * vendor/bin/phpunit + args
 * vendor/bin/phpcs + args
 * vendor/bin/php-cs-fixer + args
+* vendor/bin/phpstan + args (more robust commands via config file)
 * sh (or any other command) + args
 
 ### Some possible example commands:
@@ -60,7 +62,7 @@ See https://github.com/sebastianbergmann/phploc for more usage details of this t
 
 ```
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
-php /usr/local/lib/php-code-quality/vendor/bin/phploc -v --names "*.php" \
+php vendor/bin/phploc -v --names "*.php" \
 --exclude "vendor" . > ./php_code_quality/phploc.txt
 ```
 
@@ -70,7 +72,7 @@ See https://phpmd.org/download/index.html for more usage details of this tool.
 
 ```
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
-php /usr/local/lib/php-code-quality/vendor/bin/phpmd . xml codesize --exclude 'vendor' \
+php vendor/bin/phpmd . xml codesize --exclude 'vendor' \
 --reportfile './php_code_quality/phpmd_results.xml'
 ```
 
@@ -80,7 +82,7 @@ See https://pdepend.org/ for more usage details of this tool.
 
 ```
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
-php /usr/local/lib/php-code-quality/vendor/bin/pdepend --ignore='vendor' \
+php vendor/bin/pdepend --ignore='vendor' \
 --summary-xml='./php_code_quality/pdepend_output.xml' \
 --jdepend-chart='./php_code_quality/pdepend_chart.svg' \
 --overview-pyramid='./php_code_quality/pdepend_pyramid.svg' .
@@ -92,7 +94,7 @@ See https://github.com/sebastianbergmann/phpcpd for more usage details of this t
 
 ```
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
-php /usr/local/lib/php-code-quality/vendor/bin/phpcpd . \
+php vendor/bin/phpcpd . \
 --exclude 'vendor' > ./php_code_quality/phpcpd_results.txt
 ```
 
@@ -102,7 +104,7 @@ See http://www.phpmetrics.org/ for more usage details of this tool.
 
 ```
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
-php /usr/local/lib/php-code-quality/vendor/bin/phpmetrics --excluded-dirs 'vendor' \
+php vendor/bin/phpmetrics --excluded-dirs 'vendor' \
 --report-html=./php_code_quality/metrics_results .
 ```
 
@@ -127,8 +129,9 @@ should work.
 
 ```
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
-php vendor/bin/phpcs -sv --extensions=vendor/wimg/php-compatibility --standard='PHPCompatibility' \
---extensions=php --ignore=vendor --report-file=./php_code_quality/phpcompatibility_results.txt .
+php vendor/bin/phpcs -sv --extensions=vendor/wimg/php-compatibility \
+--standard='PHPCompatibility' --extensions=php --ignore=vendor \
+--report-file=./php_code_quality/phpcompatibility_results.txt .
 ```
 
 ## Alternative Preparations

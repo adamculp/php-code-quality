@@ -14,6 +14,7 @@ RUN mkdir -p $TARGET_DIR
 WORKDIR $TARGET_DIR
 
 COPY composer-installer.sh $TARGET_DIR/
+COPY phpstan.neon $TARGET_DIR/
 COPY composer-wrapper.sh /usr/local/bin/composer
 
 RUN apt-get update && \
@@ -31,12 +32,12 @@ RUN $TARGET_DIR/composer-installer.sh && \
    composer selfupdate && \
    composer require --prefer-stable --prefer-source "hirak/prestissimo:^0.3" && \
    composer require --prefer-stable --prefer-dist \
-       "squizlabs/php_codesniffer:dev-master" \
+       "squizlabs/php_codesniffer:^2.8" \
        "phpunit/phpunit:dev-master" \
        "phploc/phploc:dev-master" \
        "pdepend/pdepend:^2.5" \
        "phpmd/phpmd:dev-master" \
        "sebastian/phpcpd:dev-master" \
        "friendsofphp/php-cs-fixer:dev-master" \
-       "wimg/php-compatibility:dev-master" \
+       "wimg/php-compatibility:^7.1" \
        "phpmetrics/phpmetrics:dev-master"
