@@ -14,7 +14,6 @@ RUN mkdir -p $TARGET_DIR
 WORKDIR $TARGET_DIR
 
 COPY composer-installer.sh $TARGET_DIR/
-COPY phpstan.neon $TARGET_DIR/
 COPY composer-wrapper.sh /usr/local/bin/composer
 
 RUN apt-get update && \
