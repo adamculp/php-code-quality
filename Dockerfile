@@ -38,5 +38,7 @@ RUN $TARGET_DIR/composer-installer.sh && \
        "phpmd/phpmd:dev-master" \
        "sebastian/phpcpd:dev-master" \
        "friendsofphp/php-cs-fixer:dev-master" \
-       "wimg/php-compatibility:^7.1" \
        "phpmetrics/phpmetrics:dev-master"
+
+# Codesniffer doesn't find this via Composer, so we clone instead
+RUN git clone https://github.com/wimg/PHPCompatibility.git $TARGET_DIR/PHPCompatibility
