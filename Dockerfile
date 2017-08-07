@@ -31,15 +31,13 @@ RUN $TARGET_DIR/composer-installer.sh && \
    composer selfupdate && \
    composer require --prefer-stable --prefer-source "hirak/prestissimo:^0.3" && \
    composer require --prefer-stable --prefer-dist \
-       "squizlabs/php_codesniffer:^2.8" \
-       "phpunit/phpunit:dev-master" \
+       "squizlabs/php_codesniffer:^3.0.2" \
+       "phpunit/phpunit:^6.2.4" \
        "phploc/phploc:dev-master" \
        "pdepend/pdepend:^2.5" \
        "phpmd/phpmd:dev-master" \
        "sebastian/phpcpd:dev-master" \
        "friendsofphp/php-cs-fixer:dev-master" \
+       "wimg/php-compatibility:^8.0.0" \
        "phpmetrics/phpmetrics:dev-master" \
        "phpstan/phpstan:dev-master"
-
-# Codesniffer doesn't find this via Composer, so we clone instead
-RUN git clone https://github.com/wimg/PHPCompatibility.git $TARGET_DIR/PHPCompatibility
