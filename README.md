@@ -123,16 +123,11 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --extensions=php --igno
 See https://github.com/wimg/PHPCompatibility and https://github.com/squizlabs/PHP_CodeSniffer/wiki for more 
 usage details of this tool.
 
-Note: The usage of "--extensions=vendor/wimg/php-compatibility" is a bit of a hack, to work around a bug 
-preventing the rules from being loaded. Normally "--config-set installed_paths vendor/wimg/php-compatibility/" 
-should work.
-
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
-php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths \
- /usr/local/lib/php-code-quality/PHPCompatibility/ \
---standard='PHPCompatibility' --extensions=php --ignore=vendor \
---report-file=./php_code_quality/phpcompatibility_results.txt .
+$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest sh -c \
+'php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths  /usr/local/lib/php-code-quality/ && \
+php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard='PHPCompatibility' --extensions=php --ignore=vendor . \
+--report-file=./php_code_quality/phpcompatibility_results.txt .'
 ```
 
 ## Alternative Preparations
