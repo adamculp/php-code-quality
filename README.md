@@ -125,7 +125,7 @@ usage details of this tool.
 
 ```
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest sh -c \
-'php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths  /usr/local/lib/php-code-quality/ && \
+'php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths  /usr/local/lib/php-code-quality/vendor/wimg/php-compatibility && \
 php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard='PHPCompatibility' --extensions=php --ignore=vendor . \
 --report-file=./php_code_quality/phpcompatibility_results.txt .'
 ```
