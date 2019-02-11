@@ -120,7 +120,7 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --extensions=php --igno
 
 #### PHPCompatibility rules applied to PHP Codesniffer
 
-See https://github.com/wimg/PHPCompatibility and https://github.com/squizlabs/PHP_CodeSniffer/wiki for more 
+See https://github.com/PHPCompatibility/PHPCompatibility and https://github.com/squizlabs/PHP_CodeSniffer/wiki for more 
 usage details of this tool.
 
 ```
