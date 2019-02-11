@@ -12,7 +12,7 @@ More specifically this includes:
 - phpmd/phpmd
 - sebastian/phpcpd
 - friendsofphp/php-cs-fixer
-- wimg/php-compatibility
+- phpcompatibility/php-compatibility
 - phpmetrics/phpmetrics
 - phpstan/phpstan
 
