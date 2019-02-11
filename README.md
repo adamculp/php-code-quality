@@ -1,7 +1,7 @@
 # php-code-quality
-The objective is to include multiple PHP code quality tools (phpqatools and more) in an easy to use Docker image. The 
-tools include php-qa-tools, PHP static analysis, lines of PHP code report, mess detector, code smell highlighting, 
-copy/paste detection, and the applications compatibility against versions of PHP.
+The objective is to include multiple PHP code quality tools in an easy to use Docker image. The 
+tools include PHP static analysis, lines of PHP code report, mess detector, code smell highlighting, 
+copy/paste detection, and the applications compatibility from one version of PHP to another for modernization.
 
 More specifically this includes:
 
