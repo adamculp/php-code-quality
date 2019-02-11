@@ -33,11 +33,11 @@ RUN $TARGET_DIR/composer-installer.sh && \
    composer require --prefer-stable --prefer-dist \
        "squizlabs/php_codesniffer:^3.0" \
        "phpunit/phpunit:^8.0" \
-       "phploc/phploc:dev-master" \
+       "phploc/phploc:^4.0" \
        "pdepend/pdepend:^2.5" \
-       "phpmd/phpmd:dev-master" \
-       "sebastian/phpcpd:dev-master" \
-       "friendsofphp/php-cs-fixer:dev-master" \
+       "phpmd/phpmd:^2.6" \
+       "sebastian/phpcpd:^2.0" \
+       "friendsofphp/php-cs-fixer:^2.14" \
        "phpcompatibility/php-compatibility:^9.0" \
-       "phpmetrics/phpmetrics:dev-master" \
-       "phpstan/phpstan:dev-master"
+       "phpmetrics/phpmetrics:^2.4" \
+       "phpstan/phpstan:^0.11"

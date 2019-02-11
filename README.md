@@ -145,7 +145,7 @@ $ git clone https://github.com/adamculp/php-code-quality.git
 $ cd php-code-quality
 ```
 
-Alter the Dockerfile as desired, then build the image locally:
+Alter the Dockerfile as desired, then build the image locally: (don't miss the dot at the end)
 
 ```
 $ docker build -t adamculp/php-code-quality .
