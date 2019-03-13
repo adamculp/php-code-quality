@@ -18,15 +18,15 @@ More specifically this includes:
 
 ## Usage
 
-Note: This container does nothing when invoking it without a command, such as:
-
-Windows users: The use of "$PWD" for present working directory will not work as expected, instead use the full path. 
-Such as "//c/Users/adamculp/project".
+Note: This image does nothing when invoking it without a followup command, such as:
 
 ```
 $ cd </path/to/desired/directory>
 $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest <desired-command-with-arguments>
 ```
+
+Windows users: The use of "$PWD" for present working directory will not work as expected, instead use the full path. 
+Such as "//c/Users/adamculp/project".
 
 In the example above, Docker runs an interactive terminal to be removed when all is completed, and mounts 
 the current host directory ($PWD) inside the container, sets this as the current working directory, and then 
@@ -51,10 +51,18 @@ Available commands provided by the adamculp/php-code-quality image:
 * vendor/bin/phpstan + args (more robust commands via config file)
 * sh (or any other command) + args
 
-### Some possible example commands:
+### Some example commands:
 
 NOTE: If using the commands below "as-is", please create a 'php_code_quality' folder within the project first. 
 This will be used, by the commands, to contain the results of the various tools. Modify as desired.
+
+IMPORTANT: If you run into memory issues, where the output states the process ran out of memory, you can alter the amount
+of memory the PHP process uses for a given command by adding the -d flag to the PHP command. Note that the following example 
+is for extreme cases since the image already sets the memory limit to 512M.
+
+```
+php -d memory_limit=1G
+```
 
 #### PHP Lines of Code (PHPLoc)
 
