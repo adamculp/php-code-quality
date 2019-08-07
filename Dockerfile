@@ -35,7 +35,7 @@ RUN $TARGET_DIR/composer-installer.sh && \
        "phpunit/phpunit:^8.0" \
        "phploc/phploc:^4.0" \
        "pdepend/pdepend:^2.5" \
-       "phpmd/phpmd:^2.6" \
+       "phpmd/phpmd:^2.7" \
        "sebastian/phpcpd:^2.0" \
        "friendsofphp/php-cs-fixer:^2.14" \
        "phpcompatibility/php-compatibility:^9.0" \
