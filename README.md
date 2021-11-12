@@ -71,12 +71,12 @@ adamculp/php-code-quality:latest sh -c 'php /usr/local/lib/php-code-quality/vend
 
 #### PHP Codesniffer (phpcs)
 
-See [PHP_CodeSniffer Wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki) for more usage details of this tool.
+See [PHP_CodeSniffer Wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki) for more usage details of this tool. (Note: The following command instructs PHP_CodeSniffer to use the PSR-12 standards, instead of the default PEAR standards. Also, note the . on the end.)
 
 ```
 docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
-php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --extensions=php --ignore=vendor \
---report-file=./php_code_quality/codesniffer_results.txt .
+php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard=PSR12 \
+ --extensions=php --ignore=vendor --report-file=./php_code_quality/codesniffer_results.txt .
 ```
 
 #### PHPCompatibility rules applied to PHP Codesniffer
