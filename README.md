@@ -18,14 +18,21 @@ More specifically the Docker image includes:
 
 ## Usage
 
-Note: This image does nothing when invoking it without a followup command, such as:
+Note: This image does nothing when invoking it without a followup command (as shown below in `Some example commands` for each tool), such as:
 
 ```
 $ cd </path/to/desired/directory>
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest <desired-command-with-arguments>
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp \
+adamculp/php-code-quality:latest <followup-command-with-arguments>
 ```
 
-See additional portions of the command below.
+Also, note the example above is for using the Docker Hub repository. Alternatively, you can also use the Github Package repository as well by prepending `ghcr.io/` to the image identifier, like the following:
+
+```
+$ cd </path/to/desired/directory>
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp \
+ ghcr.io/adamculp/php-code-quality:latest <followup-command-with-arguments>
+```
 
 Windows users: The use of "$PWD" for present working directory will not work as expected, instead use the full path. 
 Such as "//c/Users/adamculp/project".
@@ -68,9 +75,7 @@ php -d memory_limit=1G
 See [PHPStan Documentation](https://phpstan.org/user-guide/getting-started) for more documentation on use.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest sh -c \
-'php /usr/local/lib/php-code-quality/vendor/bin/phpstan analyse -l 0 \ 
---error-format=raw > ./php_code_quality/phpcompatibility_results.txt .'
+$ docker run -it --rm --name php-code-quality -v "$PWD":/usr/src/myapp -w /usr/src/myapp ghcr.io/adamculp/php-code-quality:latest sh -c 'php /usr/local/lib/php-code-quality/vendor/bin/phpstan analyse -l 0 --error-format=table > ./php_code_quality/phpcompatibility_results.txt .'
 ```
 
 #### PHP Codesniffer (phpcs)
@@ -78,7 +83,7 @@ $ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest sh
 See [PHP_CodeSniffer Wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki) for more usage details of this tool.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
 php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --extensions=php --ignore=vendor \
 --report-file=./php_code_quality/codesniffer_results.txt .
 ```
@@ -88,7 +93,7 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --extensions=php --igno
 See [PHPCompatibility Readme](https://github.com/PHPCompatibility/PHPCompatibility) and [PHP_CodeSniffer Wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki) above for more usage details of this tool. PHPCompatibility is a collection of sniffs to be used with PHP_CodeSniffer.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest sh -c \
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest sh -c \
 'php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths  /usr/local/lib/php-code-quality/vendor/phpcompatibility/php-compatibility && \
 php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard='PHPCompatibility' --extensions=php --ignore=vendor . \
 --report-file=./php_code_quality/phpcompatibility_results.txt .'
@@ -99,7 +104,7 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard='PHPCompatib
 See [PHPLOC Readme](https://github.com/sebastianbergmann/phploc) for more usage details of this tool.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
 php /usr/local/lib/php-code-quality/vendor/bin/phploc -v --names "*.php" \
 --exclude "vendor" . > ./php_code_quality/phploc.txt
 ```
@@ -109,7 +114,7 @@ php /usr/local/lib/php-code-quality/vendor/bin/phploc -v --names "*.php" \
 See [PHPMD Readme](https://github.com/phpmd/phpmd) for more usage details of this tool.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
 php /usr/local/lib/php-code-quality/vendor/bin/phpmd . xml codesize --exclude 'vendor' \
 --reportfile './php_code_quality/phpmd_results.xml'
 ```
@@ -121,7 +126,7 @@ See [PDepend Docs](https://pdepend.org/) for more usage details of this tool.
 Note: I haven't used this for awhile, and notice it may require a Tidelift subscription for use.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
 php /usr/local/lib/php-code-quality/vendor/bin/pdepend --ignore='vendor' \
 --summary-xml='./php_code_quality/pdepend_output.xml' \
 --jdepend-chart='./php_code_quality/pdepend_chart.svg' \
@@ -133,7 +138,7 @@ php /usr/local/lib/php-code-quality/vendor/bin/pdepend --ignore='vendor' \
 See [PHPCPD Readme](https://github.com/sebastianbergmann/phpcpd) for more usage details of this tool.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
 php /usr/local/lib/php-code-quality/vendor/bin/phpcpd . \
 --exclude 'vendor' > ./php_code_quality/phpcpd_results.txt
 ```
@@ -143,14 +148,14 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpcpd . \
 See http://www.phpmetrics.org/ for more usage details of this tool.
 
 ```
-$ docker run -it --rm -v "$PWD":/app -w /app adamculp/php-code-quality:latest \
+$ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
 php /usr/local/lib/php-code-quality/vendor/bin/phpmetrics --excluded-dirs 'vendor' \
 --report-html=./php_code_quality/metrics_results .
 ```
 
 ## Alternative Preparations
 
-Rather than allowing Docker to retrieve the image from Docker Hub, users could also build the docker image locally by cloning the image repo from Github.
+Rather than allowing Docker to retrieve the image from the Docker Hub or Github image repositories, users could also build the docker image locally by cloning the image repo from Github.
 
 Why? As an example, a different version of PHP may be desired. Or a specific version of any tools might be required.
 
