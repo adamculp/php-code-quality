@@ -86,7 +86,7 @@ See [PHPCompatibility Readme](https://github.com/PHPCompatibility/PHPCompatibili
 ```
 docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest sh -c \
 'php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths  /usr/local/lib/php-code-quality/vendor/phpcompatibility/php-compatibility && \
-php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard='PHPCompatibility' --extensions=php --ignore=vendor . \
+php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard='PHPCompatibility' --extensions=php --ignore=vendor \
 --report-file=./php_code_quality/phpcompatibility_results.txt .'
 ```
 
