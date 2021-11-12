@@ -29,7 +29,6 @@ RUN chmod 744 /usr/local/bin/composer
 # Run composer installation of needed tools
 RUN $TARGET_DIR/composer-installer.sh && \
    composer selfupdate && \
-   composer require --prefer-stable --prefer-source "hirak/prestissimo:^0.3" && \
    composer require --prefer-stable --prefer-dist \
         "squizlabs/php_codesniffer:^3.6" \
         "phpunit/phpunit:^9.5" \
