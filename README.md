@@ -83,6 +83,8 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --standard=PSR12 \
 
 See [PHPCompatibility Readme](https://github.com/PHPCompatibility/PHPCompatibility) and [PHP_CodeSniffer Wiki](https://github.com/squizlabs/PHP_CodeSniffer/wiki) above for more usage details of this tool. PHPCompatibility is a collection of sniffs to be used with PHP_CodeSniffer.
 
+Note: The following command is different from others, because it passes 2 PHP commands instead of a single command. This enables loading of the PHPCompatibility sniffs, prior to use.
+
 ```
 docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest sh -c \
 'php /usr/local/lib/php-code-quality/vendor/bin/phpcs -sv --config-set installed_paths  /usr/local/lib/php-code-quality/vendor/phpcompatibility/php-compatibility && \
