@@ -9,7 +9,7 @@ on:
   # schedule:
   #  - cron: '37 10 * * *'
   push:
-    branches: [ master ]:latest
+    branches: [ master ]
     # Publish semver tags as releases.
     # tags: [ 'latest' ]
   pull_request:
@@ -61,3 +61,4 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          flavor: latest=true
