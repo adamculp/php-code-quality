@@ -1,7 +1,5 @@
 # php-code-quality
-The objective is to include multiple PHP code quality tools in an easy to use Docker image. The 
-tools include PHP static analysis, lines of PHP code report, mess detector, code smell highlighting, 
-copy/paste detection, and the application compatibility from one version of PHP to another for modernization efforts.
+My objective is to include multiple PHP code quality tools in an easy-to-use Docker image. The tools include PHP static analysis, lines of PHP code report, mess detector, code smell highlighting, copy/paste detection, and the application compatibility from one version of PHP to another for modernization efforts.
 
 More specifically the Docker image includes:
 
@@ -16,6 +14,8 @@ More specifically the Docker image includes:
 - phpunit/phpunit
 - friendsofphp/php-cs-fixer
 
+Now available through both Docker Hub and Github Container Repository. (see below)
+
 ## Usage
 
 Note: This image does nothing when invoking it without a followup command (as shown below in `Some example commands` for each tool), such as:
@@ -26,39 +26,28 @@ $ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp \
 adamculp/php-code-quality:latest <followup-command-with-arguments>
 ```
 
-Also, note the example above is for using the Docker Hub repository. Alternatively, you can also use the Github Package repository as well by prepending `ghcr.io/` to the image identifier, like the following:
+Also, note the example above is for using the Docker Hub repository. Alternatively, you can also use the Github Package repository as well by prepending `ghcr.io/` to the image identifier, like the following: (Replacing the placeholders in angle brackets with your values.)
 
 ```
-$ cd </path/to/desired/directory>
+$ cd </path/to/your/project>
 $ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp \
- ghcr.io/adamculp/php-code-quality:latest <followup-command-with-arguments>
+ adamculp/php-code-quality:latest <followup-command-with-arguments>
 ```
 
-Windows users: The use of "$PWD" for present working directory will not work as expected, instead use the full path. 
-Such as "//c/Users/adamculp/project".
+WINDOWS USERS: The use of "$PWD" for present working directory will not work as expected, instead use the full path. Such as "//c/Users/adamculp/project".
 
-In the example above, Docker runs an interactive terminal to be removed when all is completed, and mounts the current host directory ($PWD) inside the container, sets this as the current working directory, and then loads the image adamculp/php-code-quality.
+In the example above, Docker runs an interactive terminal to be removed when all is completed, and mounts the current host directory ($PWD) inside the container, sets this as the current working directory, and then loads the image `adamculp/php-code-quality` or `ghcr.io/adamculp/php-code-quality` as the case may be.
 
 Following this the user can add any commands to be executed within the container. (such as running the tools provided by the image)
 
-This is the most common use case, enabling the user to run the tools on everything in and/or below the working 
-directory.
+This is the most common use case, enabling the user to run the tools on everything in and/or below the working directory.
 
 Available commands provided by the adamculp/php-code-quality image:
 
+* sh (or any other command) + args
 * php + args
 * composer + args
-* vendor/bin/phpstan + args
-* vendor/bin/phpcs + args
-* vendor/bin/phploc + args
-* vendor/bin/phpmd + args
-* vendor/bin/pdepend + args
-* vendor/bin/phpcpd + args
-* vendor/bin/phpmetrics + args
-* vendor/bin/phpunit + args
-* vendor/bin/php-cs-fixer + args
-
-* sh (or any other command) + args
+* vendor/bin/<chosen-tool-command-below> + args
 
 ### Some example commands:
 
@@ -75,7 +64,7 @@ php -d memory_limit=1G
 See [PHPStan Documentation](https://phpstan.org/user-guide/getting-started) for more documentation on use.
 
 ```
-$ docker run -it --rm --name php-code-quality -v "$PWD":/usr/src/myapp -w /usr/src/myapp ghcr.io/adamculp/php-code-quality:latest sh -c 'php /usr/local/lib/php-code-quality/vendor/bin/phpstan analyse -l 0 --error-format=table > ./php_code_quality/phpcompatibility_results.txt .'
+$ docker run -it --rm --name php-code-quality -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest sh -c 'php /usr/local/lib/php-code-quality/vendor/bin/phpstan analyse -l 0 --error-format=table > ./php_code_quality/phpstan_results.txt .'
 ```
 
 #### PHP Codesniffer (phpcs)
@@ -155,7 +144,7 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpmetrics --excluded-dirs 'vendo
 
 ## Alternative Preparations
 
-Rather than allowing Docker to retrieve the image from the Docker Hub or Github image repositories, users could also build the docker image locally by cloning the image repo from Github.
+Rather than allowing Docker to retrieve the image from the Docker Hub or Github Container Repositories, users may also build the docker image locally by cloning the image repo from Github.
 
 Why? As an example, a different version of PHP may be desired. Or a specific version of any tools might be required.
 
@@ -180,4 +169,4 @@ $ docker build -t adamculp/php-code-quality https://github.com/adamculp/php-code
 
 ## Enjoy!
 
-Please star, on [Docker Hub](https://hub.docker.com/repository/docker/adamculp/php-code-quality) and [Github](https://github.com/adamculp/php-code-quality), if you find this helpful.
+Please star, on [Docker Hub](https://hub.docker.com/repository/docker/adamculp/php-code-quality), [Github Container Repository](https://github.com/adamculp/php-code-quality/pkgs/container/php-code-quality), or [Github](https://github.com/adamculp/php-code-quality), if you find this helpful.
