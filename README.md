@@ -102,6 +102,8 @@ php /usr/local/lib/php-code-quality/vendor/bin/phploc  \
 
 #### PHP Mess Detector (phpmd)
 
+IMPORTANT: Currently experiencing errors using this tool. See this [issue](https://github.com/phpmd/phpmd/issues/919).
+
 See [PHPMD Readme](https://github.com/phpmd/phpmd) for more usage details of this tool.
 
 ```
@@ -111,6 +113,8 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpmd . xml codesize --exclude 'v
 ```
 
 #### PHP Depends (Pdepend)
+
+IMPORTANT: Currently experiencing errors using this tool. See this [issue](https://github.com/phpmd/phpmd/issues/919).
 
 See [PDepend Docs](https://pdepend.org/) for more usage details of this tool.
 
