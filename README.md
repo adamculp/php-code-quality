@@ -34,7 +34,7 @@ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp \
  adamculp/php-code-quality:latest <followup-command-with-arguments>
 ```
 
-WINDOWS USERS: The use of "$PWD" for present working directory will not work as expected, instead use the full path. Such as "//c/Users/adamculp/project".
+WINDOWS USERS: The use of "$PWD" for present working directory will not work as expected, instead use "%cd%" or the full path. Such as "//c/Users/adamculp/project".
 
 In the example above, Docker runs an interactive terminal to be removed when all is completed, and mounts the current host directory ($PWD) inside the container, sets this as the current working directory, and then loads the image `adamculp/php-code-quality` or `ghcr.io/adamculp/php-code-quality` as the case may be.
 
