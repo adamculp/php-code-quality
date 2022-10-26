@@ -14,7 +14,7 @@ More specifically the Docker image includes:
 - phpunit/phpunit
 - friendsofphp/php-cs-fixer
 
-Now available through both Docker Hub and Github Container Repository. (see below)
+Now available through both Docker Hub and GitHub Container Repository. (see below)
 
 ## Usage
 
@@ -26,7 +26,7 @@ docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp \
 adamculp/php-code-quality:latest <followup-command-with-arguments>
 ```
 
-Also, note the example above is for using the Docker Hub repository. Alternatively, you can also use the Github Package repository as well by prepending `ghcr.io/` to the image identifier, like the following: (Replacing the placeholders in angle brackets with your values.)
+Also, note the example above is for using the Docker Hub repository. Alternatively, you can also use the GitHub Package repository as well by prepending `ghcr.io/` to the image identifier, like the following: (Replacing the placeholders in angle brackets with your values.)
 
 ```
 cd </path/to/your/project>
@@ -120,7 +120,7 @@ IMPORTANT: Currently experiencing errors using this tool. See this [issue](https
 
 See [PDepend Docs](https://pdepend.org/) for more usage details of this tool.
 
-Note: I haven't used this for awhile, and notice it may require a Tidelift subscription for use.
+Note: I haven't used this for a while, and notice it may require a Tidelift subscription for use.
 
 ```
 docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp adamculp/php-code-quality:latest \
@@ -152,7 +152,7 @@ php /usr/local/lib/php-code-quality/vendor/bin/phpmetrics --excluded-dirs 'vendo
 
 ## Alternative Preparations
 
-Rather than allowing Docker to retrieve the image from the Docker Hub or Github Container Repositories, users may also build the docker image locally by cloning the image repo from Github.
+Rather than allowing Docker to retrieve the image from the Docker Hub or GitHub Container Repositories, users may also build the docker image locally by cloning the image repo from GitHub.
 
 Why? As an example, a different version of PHP may be desired. Or a specific version of any tools might be required.
 
@@ -177,4 +177,4 @@ docker build -t adamculp/php-code-quality https://github.com/adamculp/php-code-q
 
 ## Enjoy!
 
-Please star, on [Docker Hub](https://hub.docker.com/repository/docker/adamculp/php-code-quality), [Github Container Repository](https://github.com/adamculp/php-code-quality/pkgs/container/php-code-quality), or [Github](https://github.com/adamculp/php-code-quality), if you find this helpful.
+Please star, on [Docker Hub](https://hub.docker.com/repository/docker/adamculp/php-code-quality), [GitHub Container Repository](https://github.com/adamculp/php-code-quality/pkgs/container/php-code-quality), or [GitHub](https://github.com/adamculp/php-code-quality), if you find this helpful.
