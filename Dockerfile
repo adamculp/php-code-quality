@@ -1,6 +1,6 @@
 # Choose the desired PHP version
 # Choices available at https://hub.docker.com/_/php/ stick to "-cli" versions recommended
-FROM php:8.1.8-cli
+FROM php:8.5-cli
 
 MAINTAINER Adam Culp <adamculp@uws.net>
 
@@ -30,13 +30,13 @@ RUN chmod 744 /usr/local/bin/composer
 RUN $TARGET_DIR/composer-installer.sh && \
    composer selfupdate && \
    composer require --prefer-stable --prefer-dist \
-        "squizlabs/php_codesniffer:^3.6" \
-        "phpunit/phpunit:^9.5" \
+        "squizlabs/php_codesniffer:^4.0" \
+        "phpunit/phpunit:^13.1" \
         "phploc/phploc:^7.0" \
-        "pdepend/pdepend:^2.10" \
-        "phpmd/phpmd:^2.10" \
+        "pdepend/pdepend:^2.16" \
+        "phpmd/phpmd:^2.15" \
         "sebastian/phpcpd:^6.0" \
-        "friendsofphp/php-cs-fixer:^3.2" \
+        "friendsofphp/php-cs-fixer:^3.95" \
         "phpcompatibility/php-compatibility:^9.3" \
-        "phpmetrics/phpmetrics:^2.7" \
-        "phpstan/phpstan:^1.1"
+        "phpmetrics/phpmetrics:^2.9" \
+        "phpstan/phpstan:^2.1"
