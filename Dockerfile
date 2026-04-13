@@ -30,8 +30,8 @@ RUN chmod 744 /usr/local/bin/composer
 RUN $TARGET_DIR/composer-installer.sh && \
    composer selfupdate && \
    composer require --prefer-stable --prefer-dist \
-        "squizlabs/php_codesniffer:^4.0" \
-        "phpunit/phpunit:^13.1" \
+        "squizlabs/php_codesniffer:^3.13" \
+        "phpunit/phpunit:^9.6" \
         "phploc/phploc:^7.0" \
         "pdepend/pdepend:^2.16" \
         "phpmd/phpmd:^2.15" \
